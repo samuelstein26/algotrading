@@ -1,0 +1,13 @@
+# .gitignore
+frontend/.env
+frontend/node_modules
+frontend/src/img
+
+
+backend/.env
+
+backend/helper.sql
+backend/node_modules/
+backend/uploads
+
+node_modules/
