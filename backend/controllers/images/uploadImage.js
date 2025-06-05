@@ -1,7 +1,5 @@
 const uploadImage = async (req, res) => {
     try {
-        console.log(req.file);
-        console.log(req.body);
 
         if (!req.file || !req.file.filename) {
             return res.status(400).json({ error: 'Nenhuma imagem válida enviada' });

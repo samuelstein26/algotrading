@@ -1,38 +1,44 @@
-import getConnection from "../models/db.js";
-import { processDeltaImages, saveBase64Image } from "../utils/imageService.js";
+import getConnection from "../../models/db.js";
+import { deleteImagePost } from "../images/deleteImagePost.js";
+import { processDeltaImages, saveBase64Image, isBase64Image } from "../../utils/imageService.js";
 
-const savePost = async (req, res) => {
+const updatePost = async (req, res) => {
+    const { storedUserId, postId, title, image, delta } = req.body;
+
+    if (storedUserId || !postId) {
+        console.log('ID do post ou ID do usuário não foram fornecidos');
+        return res.status(400).json({ message: 'ID do post ou ID do usuário não foram fornecidos' });
+    }
+
+
+    const isImageBase64 = await isBase64Image(image);
+
     try {
+        if (image) {
+            await deleteImagePost(postId, isImageBase64, false);
+        }
 
-        const { title, image, delta } = req.body;
-
-        // Processa o Delta para extrair e salvar imagens
         const { processedDelta, imagePaths } = await processDeltaImages(delta, (key, value) => {
             if (typeof value === 'bigint') {
-                //console.log('Encontrado BigInt:', value);
                 return value.toString() + 'n'; // Add 'n' to identify as BigInt
             }
             return value;
         });
 
-        console.log('Delta processado:', processedDelta);
-
-        // Inicia transação no banco de dados
         const conn = await getConnection();
         await conn.beginTransaction();
 
         try {
-            // Insere o post principal
+
             const postResult = await conn.query(
-                'INSERT INTO posts (title, content_delta) VALUES (?, ?)',
-                [title, processedDelta]
+                'UPDATE posts SET title = ?, content_delta = ? WHERE id = ?',
+                [title, processedDelta, postId]
             );
-            //console.log('Post principal salvo com sucesso:', postResult);
-            const postId = postResult.insertId;
 
             // Insere a imagem de capa
-            if (postId && image !== null) {
+            if (isImageBase64) {
                 const { filePath } = await saveBase64Image(image);
+                console.log('Arquivo Image cover salvo:', filePath);
                 await conn.query(
                     'INSERT INTO post_image_cover (post_id, storage_path) VALUES (?, ?)',
                     [postId, filePath]
@@ -41,7 +47,6 @@ const savePost = async (req, res) => {
 
             // Insere as imagens na tabela de mídias
             for (const imgPath of imagePaths) {
-                console.log(imgPath);
                 if (!imgPath) continue;
                 await conn.query(
                     'INSERT INTO post_media (post_id, original_name, storage_path, display_order) VALUES (?, ?, ?, ?)',
@@ -51,19 +56,19 @@ const savePost = async (req, res) => {
 
             await conn.commit();
 
-            const id = postId.toString();
-
-            res.status(200).json({ success: true, id });
+            res.status(200).json({ success: true, message: 'Post atualizado com sucesso' });
         } catch (dbError) {
             await conn.rollback();
             throw dbError;
         } finally {
             if (conn) conn.release();
         }
-    } catch (error) {
-        console.error('Error saving post:', error);
-        res.status(500).json({ success: false, error: 'Internal server error' });
-    }
-};
 
-export default savePost;
+    } catch (err) {
+        console.error('Erro ao atualizar post:', err);
+        res.status(500).json({ message: 'Erro interno do servidor' });
+    }
+
+}
+
+export { updatePost };

@@ -1,8 +1,7 @@
-import getConnection from '../models/db.js';
+import getConnection from '../../models/db.js';
 
 const usernameCheck = async (req, res) => {
     const username = req.query.username || req.body.username;
-    console.log(req.body);
 
     if (!username || username.trim() === '') {
         return res.status(400).json({
@@ -14,8 +13,6 @@ const usernameCheck = async (req, res) => {
         const conn = await getConnection();
         const [user] = await conn.query('SELECT * FROM conta_usuario WHERE username = ?', [username]);
         conn.release();
-
-        console.log(user);
 
         res.json({
             isAvailable: !user,

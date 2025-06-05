@@ -44,7 +44,6 @@ export async function processDeltaImages(deltaOps) {
 }
 
 export async function saveBase64Image(base64Data) {
-    console.log('I am here');
     const matches = base64Data.match(/^data:image\/(\w+);base64,(.+)$/);
     if (!matches || matches.length !== 3) {
         throw new Error('Invalid base64 image data');
@@ -61,4 +60,28 @@ export async function saveBase64Image(base64Data) {
         filePath: filePath,
         originalName: `image.${ext}`
     };
+}
+
+export async function getBase64Image(filePath, filename) {
+    try {
+        const fileData = fs.readFileSync(filePath);
+        const base64Image = `data:image/${path.extname(filename).substring(1)};base64,${fileData.toString('base64')}`;
+        
+        return ({ image: base64Image });
+    } catch (error) {
+        console.error('Erro ao converter imagem:', error);
+        res.status(500).json({ error: 'Erro ao processar imagem' });
+    }
+}
+
+export async function isBase64Image(str) {
+    if (typeof str !== 'string') return false;
+    
+    // Padrão para base64 de imagem: data:image/[extensão];base64,...
+    const base64Regex = /^data:image\/(png|jpeg|jpg|gif|webp);base64,/;
+    
+    // Verifica se é um caminho de arquivo (contém extensão de imagem e não começa com data:)
+    const isFilePath = /\.(png|jpeg|jpg|gif|webp)$/i.test(str) && !str.startsWith('data:');
+    
+    return base64Regex.test(str) || (str.length > 1000 && !isFilePath);
 }

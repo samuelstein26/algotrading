@@ -12,7 +12,6 @@ const pool = mariadb.createPool({
     connectionLimit: 5
 });
 
-// Crie a tabela se não existir
 async function testDatabase() {
     let conn;
     try {
@@ -28,7 +27,6 @@ async function testDatabase() {
 async function getConnection() {
     try {
         const conn = await pool.getConnection();
-        console.log('Connection established');
         return conn;
     } catch (err) {
         console.error('Error getting database connection:', err);

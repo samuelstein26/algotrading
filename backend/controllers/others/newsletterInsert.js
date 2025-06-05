@@ -1,4 +1,4 @@
-import getConnection from "../models/db.js";
+import getConnection from "../../models/db.js";
 
 const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

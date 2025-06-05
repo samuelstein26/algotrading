@@ -1,7 +1,7 @@
-import getConnection from '../models/db.js';
-import tk from '../utils/jwtUtils.js';
-import sendTempPasswordEmail from '../utils/emailService.js';
-import pw from '../utils/passwordUtils.js';
+import getConnection from '../../models/db.js';
+import tk from '../../utils/jwtUtils.js';
+import sendTempPasswordEmail from '../../utils/emailService.js';
+import pw from '../../utils/passwordUtils.js';
 
 const resetPassword = async (req, res) => {
     const { userId, currentPassword, newPassword, repeatPassword } = req.body;
@@ -43,7 +43,6 @@ const resetPassword = async (req, res) => {
 }
 
 const login = async (req, res) => {
-    console.log(req.body);
     const { emailUsername, password } = req.body;
 
     if (!emailUsername || !password) {
@@ -60,6 +59,7 @@ const login = async (req, res) => {
         } else {
             [user] = await conn.query('SELECT * FROM conta_usuario WHERE username = ?', [emailUsername]);
         }
+        
         conn.release();
 
         if (!user) {
@@ -109,8 +109,6 @@ const forgotPassword = async (req, res) => {
         // 1. Find user
         const conn = await getConnection();
         const [user] = await conn.query('SELECT * FROM conta_usuario WHERE email = ?', [email]);
-
-        console.log(user);
 
         if (!user) {
             return res.json({
