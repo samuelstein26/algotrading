@@ -1,0 +1,14 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o container ocupe pelo menos a altura da tela */
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Faz o Container ocupar o espaço restante */
+    height: calc(100vh - 60px); /* 100vh menos a altura do rodapé (ajuste o valor conforme necessário) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza o conteúdo verticalmente */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+  }

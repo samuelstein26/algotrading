@@ -1,0 +1,197 @@
+/* PostCard.css */
+.post-card {
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+    /* Adiciona uma borda sutil */
+}
+
+.post-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.post-card .card-header {
+    background-color: transparent;
+    /* Remove o fundo cinza */
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 1.25rem;
+    position: relative;
+    /* Permite posicionamento absoluto do botão */
+}
+
+.post-card .card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #212529;
+    text-align: center;
+    /* Centraliza o título */
+    width: 100%;
+    /* Ocupa toda a largura */
+}
+
+.post-card .close-button {
+    position: absolute;
+    /* Posiciona absolutamente em relação ao header */
+    right: 1.25rem;
+    /* Distância da direita */
+    top: 50%;
+    /* Alinha verticalmente */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    padding: 0.25rem;
+    border: none;
+    background: transparent;
+    color: #6c757d;
+    transition: all 0.2s;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-card .close-button:hover {
+    color: #dc3545;
+    background-color: transparent;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.post-card-header {
+    width: 100%;
+}
+
+.post-card .card-body {
+    padding: 1.25rem;
+}
+
+.post-card .image-preview-container {
+    width: 100%;
+    height: 150px;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-card .image-preview-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.post-card .text-muted {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.post-card .card-text {
+    color: #495057;
+    line-height: 1.6;
+}
+
+.post-card .btn {
+    min-width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.post-card .btn-outline-success {
+    border-color: #28a745;
+}
+
+.post-card .btn-outline-success:hover {
+    background-color: #28a745;
+    color: white;
+}
+
+.post-card .btn-outline-danger {
+    border-color: #dc3545;
+}
+
+.post-card .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+.post-card .btn-success {
+    background-color: #28a745;
+}
+
+.post-card .btn-danger {
+    background-color: #dc3545;
+}
+
+.text-container {
+    padding: 10px;
+}
+
+.ql-editor {
+    padding: 0px !important;
+}
+
+.ql-editor img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    border-radius: 4px;
+}
+
+.ql-editor p {
+    margin-bottom: 1em;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .post-card .image-preview-container {
+        height: 120px;
+        margin-bottom: 1rem;
+    }
+
+    .post-card .d-flex.justify-content-center {
+        justify-content: flex-start !important;
+        margin-top: 1rem;
+    }
+}
+
+.btn-light-success {
+    background-color: rgba(40, 167, 69, 0.2); /* Verde claro */
+    border-color: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.btn-light-success:hover {
+    background-color: rgba(40, 167, 69, 0.3); /* Verde mais claro ao passar o mouse */
+    border-color: rgba(40, 167, 69, 0.3);
+    color: #28a745;
+}
+
+.btn-light-danger {
+    background-color: rgba(220, 53, 69, 0.2); /* Vermelho claro */
+    border-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+.btn-light-danger:hover {
+    background-color: rgba(220, 53, 69, 0.3); /* Vermelho mais claro ao passar o mouse */
+    border-color: rgba(220, 53, 69, 0.3);
+    color: #dc3545;
+}

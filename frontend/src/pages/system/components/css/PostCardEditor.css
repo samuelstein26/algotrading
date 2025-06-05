@@ -1,0 +1,24 @@
+.post-card-editor-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh / 1.6);
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse */
+  }
+  
+  .post-card-editor {
+    flex: 1; /* Ocupa todo o espaço disponível */
+    display: flex;
+    flex-direction: column;
+    background: white;
+    overflow-y: auto; /* Adiciona rolagem vertical quando necessário */
+  }
+  
+  /* Estilização específica para o editor Quill */
+  .post-card-editor .ql-container {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .post-card-editor .ql-editor {
+    min-height: 100%; /* Garante que o editor tenha pelo menos a altura do container */
+  }

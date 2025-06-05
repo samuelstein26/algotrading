@@ -1,0 +1,75 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@editorjs/embed": "^2.7.6",
+    "@editorjs/inline-code": "^1.5.1",
+    "@editorjs/marker": "^1.4.0",
+    "@editorjs/paragraph": "^2.11.7",
+    "@editorjs/quote": "^2.7.6",
+    "@editorjs/table": "^2.4.4",
+    "@editorjs/underline": "^1.2.1",
+    "@editorjs/warning": "^1.4.1",
+    "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
+    "compressorjs": "^1.2.1",
+    "quill": "^2.0.3",
+    "quill-delta-to-html": "^0.12.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
+    "react-datepicker": "^8.3.0",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.53.2",
+    "react-icons": "^5.3.0",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^6.26.2",
+    "react-scripts": "^5.0.1",
+    "react-ts-tradingview-widgets": "^1.2.8",
+    "recharts": "^2.15.3",
+    "slate": "^0.112.0",
+    "slate-history": "^0.113.1",
+    "slate-hyperscript": "^0.100.0",
+    "slate-react": "^0.112.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "jest",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.25.7",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "babel-jest": "^30.0.0-beta.3",
+    "jest": "^27.5.1"
+  },
+  "type": "module",
+  "jest": {
+    "testEnvironment": "jsdom",
+    "transform": {}
+  }
+}

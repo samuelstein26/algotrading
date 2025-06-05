@@ -1,0 +1,283 @@
+.col-height {
+    height: 100%;
+}
+
+/* Card principal */
+.prompt-templates-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  /* Header do card */
+  .prompt-models-header {
+    padding: 12px 16px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Lista de itens */
+  .prompt-templates-list {
+    max-height: calc(100vh - 270px);
+    overflow-y: auto;
+  }
+  
+  /* Item individual */
+  .prompt-template-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .prompt-template-item:hover {
+    background-color: #f8f9fa;
+  }
+  
+  /* Conteúdo do template */
+  .template-content {
+    padding-right: 28px; /* Espaço para o botão de fechar */
+  }
+  
+  .template-name {
+    display: block;
+    margin-bottom: 4px;
+    color: #212529;
+  }
+  
+  .template-preview {
+    display: block;
+    line-height: 1.4;
+  }
+  
+  /* Botão de fechar */
+  .btn-close-template {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: #6c757d;
+    border: none;
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-close-template:hover {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  /* Estilos gerais do card */
+.algorithm-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 2rem;
+  }
+  
+  .algorithm-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* Estilos do cabeçalho */
+  .card-body-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1rem 1.5rem;
+    width: 100%;
+  }
+  
+  .card-body-header .form-label {
+    color: #495057;
+    font-size: 0.95rem;
+  }
+  
+  .card-body-header .form-control {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card-body-header .form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+  }
+  
+  /* Estilos dos botões no cabeçalho */
+  .card-body-header .btn-outline-primary {
+    border-color: #0d6efd;
+    color: #0d6efd;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body-header .btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+  }
+  
+  .card-body-header .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body-header .btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+  }
+  
+  .card-body-header .btn-primary:disabled {
+    background-color: #86b7fe;
+    border-color: #86b7fe;
+    opacity: 0.7;
+  }
+  
+  /* Estilos do corpo do card */
+  .card-body {
+    padding: 1.5rem;
+  }
+  
+  /* Estilos do textarea */
+  .card-body textarea {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-height: px;
+  }
+  
+  .card-body textarea:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+  }
+  
+  .card-body .form-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+  }
+  
+  /* Estilos do botão Gerar Código */
+  .card-body .btn-success {
+    background-color: #198754;
+    border-color: #198754;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body .btn-success:hover {
+    background-color: #157347;
+    border-color: #146c43;
+  }
+  
+  .card-body .btn-success:disabled {
+    background-color: #a3cfbb;
+    border-color: #a3cfbb;
+    opacity: 0.8;
+  }
+  
+  /* Estilos da área de código gerado */
+  .card-body h5 {
+    color: #212529;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  .card-body pre {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid #e9ecef;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-body code {
+    color: #d63384;
+    font-family: 'SFMono-Regular', Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.9em;
+  }
+  
+  /* Estilos do nome do arquivo gerado */
+  .card-body .text-muted strong {
+    color: #495057;
+    font-weight: 500;
+  }
+  
+  /* Estilos do botão de download */
+  .card-body .btn-outline-primary {
+    border-color: #0d6efd;
+    color: #0d6efd;
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body .btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+  }
+  
+  .card-body .btn-outline-primary i {
+    font-size: 0.9em;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .card-body-header {
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+    
+    .card-body-header .form-group {
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start !important;
+    }
+    
+    .card-body-header .form-control {
+      max-width: 100% !important;
+      margin: 0.5rem 0;
+    }
+    
+    .card-body-header .d-flex {
+      width: 100%;
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  /* Melhorias para mobile */
+  @media (max-width: 768px) {
+    .prompt-models-header {
+      padding: 10px 12px;
+      font-size: 1rem;
+    }
+    
+    .prompt-template-item {
+      padding: 10px 12px;
+    }
+  }

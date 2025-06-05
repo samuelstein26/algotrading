@@ -1,0 +1,9 @@
+#controlled-tab-example {
+        padding: 5px;
+        margin: 5px;
+        border-radius: 10px;
+    }
+    
+    #controlled-tab-example-tab-ler, #controlled-tab-example-tab-editar, #controlled-tab-example-tab-criar {
+        width: 100px;
+    }

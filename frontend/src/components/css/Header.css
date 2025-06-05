@@ -1,0 +1,11 @@
+.logo-svg {
+    width: 150px;
+    height: 60px;
+    margin: 0px;
+}
+
+.separator-hr {
+    border: none;
+    border-top: 1px solid black;
+    margin: 0px;
+  }

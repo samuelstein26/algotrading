@@ -1,0 +1,35 @@
+/* Define o estilo padrão dos botões */
+.nav-link {
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Define o estilo quando o botão é clicado */
+.active-button {
+  transform: scale(1.05);
+  font-weight: bold;
+}
+
+.column-settings {
+  min-height: calc(100vh - 124px);
+}
+
+/* Spinner styles */
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Transition effects */
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
