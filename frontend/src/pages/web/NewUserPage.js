@@ -83,6 +83,14 @@ const NewUserPage = () => {
             return;
         }
 
+        // Validação manual dos campos obrigatórios
+        const form = e.target;
+        if (!form.checkValidity()) {
+            // Mostra mensagens de validação do HTML5
+            form.reportValidity();
+            return;
+        }
+
         try {
             const response = await api.post('/register', {
                 nome: name,
@@ -95,7 +103,7 @@ const NewUserPage = () => {
                 username: username,
                 password: password
             });
-            
+
             if (response.data) {
                 navigate('/login');
             }
@@ -201,12 +209,13 @@ const NewUserPage = () => {
                 <Row>
                     <Col>
                         <Card className="p-4 shadow-sm mw-100" style={{ width: '600px', height: 'auto' }}>
-                            <Form onSubmit={handleSubmit} style={{ width: '90%' }}>
+                            <Form onSubmit={handleSubmit} style={{ width: '90%' }} data-testid="register-form">
                                 <h3 className="text-center mb-4">Novo Usuário</h3>
 
                                 <InputGroup className="mb-3">
                                     <InputGroup.Text ControlId="basic-addon1" style={{ width: '120px' }}>Nome:</InputGroup.Text>
                                     <Form.Control
+                                        data-testid="nome-input"
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
@@ -217,6 +226,7 @@ const NewUserPage = () => {
                                 <InputGroup className="mb-3">
                                     <InputGroup.Text ControlId="basic-addon1" style={{ width: '120px' }}>Sobrenome:</InputGroup.Text>
                                     <Form.Control
+                                        data-testid="sobrenome-input"
                                         type="text"
                                         value={surname}
                                         onChange={(e) => setSurname(e.target.value)}
@@ -227,6 +237,7 @@ const NewUserPage = () => {
                                 <InputGroup className="mb-3">
                                     <InputGroup.Text ControlId="basic-addon1" style={{ width: '120px' }}>Email:</InputGroup.Text>
                                     <Form.Control
+                                        data-testid="email-input"
                                         type="text"
                                         value={email}
                                         onChange={handleEmailChange}
@@ -238,6 +249,7 @@ const NewUserPage = () => {
                                 <InputGroup className="mb-3">
                                     <InputGroup.Text ControlId="basic-addon1" style={{ width: '120px' }}>Telefone:</InputGroup.Text>
                                     <Form.Control
+                                        data-testid="telefone-input"
                                         type="text"
                                         value={phone}
                                         onChange={handlePhoneChange}
@@ -247,11 +259,13 @@ const NewUserPage = () => {
 
                                 <InputGroup className="mb-3">
                                     <InputGroup.Text ControlId="basic-addon1" style={{ width: '120px' }}>Estado:</InputGroup.Text>
-                                    <Form.Select value={selectedState} onChange={(e) => {
-                                        setSelectedState(e.target.value)
-                                        setEstateID(selectedState.id)
-                                    }
-                                    }
+                                    <Form.Select
+                                        data-testid="estado-input"
+                                        value={selectedState}
+                                        onChange={(e) => {
+                                            setSelectedState(e.target.value)
+                                            setEstateID(selectedState.id)
+                                        }}
                                         required
                                     >
                                         <option value="">Selecione</option>
@@ -268,6 +282,7 @@ const NewUserPage = () => {
                                         Cidade:
                                     </InputGroup.Text>
                                     <Form.Select
+                                        data-testid="cidade-input"
                                         value={selectedCity}
                                         onChange={(e) => {
                                             const selectedCityData = cities.find((city) => city.nome === e.target.value);
@@ -298,13 +313,19 @@ const NewUserPage = () => {
                                         Username:
                                     </InputGroup.Text>
                                     <Form.Control
+                                        data-testid="username-input"
                                         type="text"
                                         placeholder="Deve ser único"
                                         value={username}
                                         onChange={(e) => { setUsername(e.target.value); }}
                                         required
                                     />
-                                    <Button variant="outline-secondary" ControlId="button-addon2" onClick={() => checkUsernameAvailability(username)}>
+                                    <Button
+                                        variant="outline-secondary"
+                                        ControlId="button-addon2"
+                                        onClick={() => checkUsernameAvailability(username)}
+                                        data-testid="username-check-button"
+                                    >
                                         <IoSearch />
                                     </Button>
                                 </InputGroup>
@@ -315,6 +336,7 @@ const NewUserPage = () => {
                                         Password:
                                     </InputGroup.Text>
                                     <Form.Control
+                                        data-testid="password-input"
                                         type="text"
                                         value={password}
                                         onChange={handlePasswordChange}
@@ -337,6 +359,7 @@ const NewUserPage = () => {
                                         Confirmar Password:
                                     </InputGroup.Text>
                                     <Form.Control
+                                        data-testid="confirmar-password-input"
                                         type="text"
                                         value={confirmPassword}
                                         onChange={(e) => { setConfirmPassword(e.target.value); }}

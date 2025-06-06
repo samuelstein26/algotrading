@@ -233,6 +233,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
               <Form.Group className="d-flex align-items-center mb-0" style={{ flex: 1 }}>
                 <Form.Label className="mb-0 me-2 fw-semibold">Título</Form.Label>
                 <Form.Control
+                  data-testid="titulo-input"
                   type="text"
                   placeholder=""
                   value={title}
@@ -243,6 +244,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
               </Form.Group>
               <div className="d-flex">
                 <Button
+                  data-testid="reset-button"
                   variant="outline-primary"
                   onClick={() => handleResetFields()}
                   className="me-2"
@@ -250,6 +252,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
                   Resetar
                 </Button>
                 <Button
+                  data-testid="save-model-button"
                   variant="outline-primary"
                   onClick={() => handleSaveTemplate('modelo')}
                 >
@@ -266,6 +269,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
                 <Form.Group className="mb-3">
                   <Form.Label>Digite sua estrategia abaixo:</Form.Label>
                   <Form.Control
+                    data-testid="prompt-input"
                     as="textarea"
                     rows={8}
                     value={prompt}
@@ -274,6 +278,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
                   />
                 </Form.Group>
                 <Button
+                  data-testid="generate-button"
                   variant="outline-primary"
                   type="submit"
                   disabled={isLoading}
@@ -289,6 +294,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
                   <h6>Código Gerado: `{pathName}`</h6>
 
                   <Button
+                    data-testid="toggle-button"
                     onClick={() => setOpenCollapse(!openCollapse)}
                     variant='outline-primary'
                     aria-controls="example-collapse-text"
@@ -305,6 +311,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
                     <Row className="mt-3">
                       <Col>
                         <Button
+                          data-testid="download-button"
                           variant="outline-primary"
                           onClick={handleDownload}
                         >
@@ -312,6 +319,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
                           Download do Código
                         </Button>
                         <Button
+                          data-testid="copy-button"
                           variant="outline-primary"
                           onClick={() => handleCopyToClipboard()}
                           className='ms-2'
@@ -321,6 +329,7 @@ const AlgorithmCreator = ({ onGenerateCode, onSavePrompt }) => {
                         </Button>
 
                         <Button
+                          data-testid="save-button"
                           variant="outline-primary"
                           onClick={() => handleSaveTemplate('algo', generatedCode)}
                           className='ms-2'
