@@ -31,7 +31,6 @@ async function sendTempPasswordEmail(email, tempPassword) {
     };
 
     const info = await transporter.sendMail(mailOptions);
-    console.log('Email enviado:', info.messageId);
     return { success: true, messageId: info.messageId };
   } catch (error) {
     console.error('Erro ao enviar email:', error);

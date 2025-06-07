@@ -49,7 +49,6 @@ const LearningPage = () => {
             });
 
             if (response.status === 200) {
-                console.log('Post saved successfully');
                 await fetchUserPosts();
                 setEditKey(prev => prev + 1);
                 return true;
@@ -68,7 +67,6 @@ const LearningPage = () => {
             });
 
             if (response.status === 200) {
-                console.log('Post deletado com sucesso!');
                 await fetchUserPosts();
                 return true;
             }
@@ -90,7 +88,6 @@ const LearningPage = () => {
             })
 
             if (response.status === 200) {
-                console.log('Post saved successfully');
                 await fetchUserPosts();
                 return true;
             } else {

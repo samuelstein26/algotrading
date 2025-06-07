@@ -141,12 +141,6 @@ const updatePrompt = async (req, res) => {
             [code, promptId]
         );
 
-        console.log('Atualizando algoritmo');
-        console.log('code:', code);
-        console.log('promptId:', promptId);
-
-
-
         res.json({ success: true });
     } catch (error) {
         console.error(error);

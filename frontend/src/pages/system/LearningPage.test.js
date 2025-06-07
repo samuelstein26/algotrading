@@ -116,7 +116,6 @@ describe('LearningPage', () => {
 
         // Configuração dos mocks
         mockApi.get.mockImplementation((url) => {
-            console.log('URL chamada:', url); // Debug das chamadas
             if (url.includes('/posts/user/')) {
                 return Promise.resolve({ data: [{ id: 1, title: 'Meu Post' }] });
             }

@@ -73,7 +73,6 @@ const createUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  console.log(req.body);
   const { userId, name, surname, email, phone, estateID, cityId, username } = req.body;
 
   if (!name || !surname || !email || !phone || !estateID || !cityId || !username) {

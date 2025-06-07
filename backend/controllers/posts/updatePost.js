@@ -6,7 +6,6 @@ const updatePost = async (req, res) => {
     const { storedUserId, postId, title, image, delta } = req.body;
 
     if (storedUserId || !postId) {
-        console.log('ID do post ou ID do usuário não foram fornecidos');
         return res.status(400).json({ message: 'ID do post ou ID do usuário não foram fornecidos' });
     }
 
@@ -38,7 +37,6 @@ const updatePost = async (req, res) => {
             // Insere a imagem de capa
             if (isImageBase64) {
                 const { filePath } = await saveBase64Image(image);
-                console.log('Arquivo Image cover salvo:', filePath);
                 await conn.query(
                     'INSERT INTO post_image_cover (post_id, storage_path) VALUES (?, ?)',
                     [postId, filePath]

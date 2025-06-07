@@ -47,7 +47,6 @@ const ContactPage = () => {
         const response = await api.post('/contato', formData);
 
         if (response.status === 200) {
-          console.log('Formulário enviado:', formData);
           setSubmitted(true);
           setFormData({
             nome: '',

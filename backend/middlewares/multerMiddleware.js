@@ -55,7 +55,6 @@ const deleteSingleFile = async (filePath) => {
     try {
         if (fs.existsSync(filePath)) {
             fs.unlinkSync(filePath);
-            console.log(`Arquivo deletado: ${filePath}`);
             return true;
         } else {
             console.warn(`Arquivo não encontrado: ${filePath}`);

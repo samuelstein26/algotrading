@@ -34,11 +34,9 @@ const getMe = async (req, res) => {
         const [conta] = await conn.query('SELECT * FROM conta_usuario WHERE id = ?', [userId]);
 
         const { data: estado } = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${user.idEstado}`);
-        console.log('Estado:', estado.nome);
         const { data: cidades } = await axios.get(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${user.idEstado}/municipios`);
         
         const cidadeEncontrada = cidades.find(cidade => cidade.id === user.idCidade);
-        console.log('Cidade:', cidadeEncontrada.nome);
 
         res.status(200).json({
             user: {
