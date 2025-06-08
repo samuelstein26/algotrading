@@ -3,7 +3,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     margin: 20px 0;
-    /*height: calc(100vh / 1.4);*/
     height: 100%;
 }
 
