@@ -24,7 +24,6 @@ function Home() {
     forex: ['FX'],
     crypto: ['CRYPTO'],
     indices: ['INDICES'],
-    commodities: ['COMMODITIES'],
     etfs: ['ETF']
   };
 
@@ -52,7 +51,6 @@ function Home() {
     { symbol: 'EURUSD', exchange: 'FX', name: 'Euro/Dollar', category: 'forex' },
     { symbol: 'GBPUSD', exchange: 'FX', name: 'Pound/Dollar', category: 'forex' },
     { symbol: 'USDJPY', exchange: 'FX', name: 'Dollar/Yen', category: 'forex' },
-    { symbol: 'USDBRL', exchange: 'FX', name: 'Dollar/Real', category: 'forex' },
 
     // Índices
     { symbol: 'SPX', exchange: 'INDICES', name: 'S&P 500', category: 'indices' },
@@ -60,15 +58,10 @@ function Home() {
     { symbol: 'IXIC', exchange: 'INDICES', name: 'NASDAQ Composite', category: 'indices' },
     { symbol: 'IBOV', exchange: 'INDICES', name: 'Ibovespa', category: 'indices' },
 
-    // Commodities
-    { symbol: 'GCUSD', exchange: 'COMMODITIES', name: 'Gold', category: 'commodities' },
-    { symbol: 'CLUSD', exchange: 'COMMODITIES', name: 'Crude Oil', category: 'commodities' },
-    { symbol: 'SIUSD', exchange: 'COMMODITIES', name: 'Silver', category: 'commodities' },
-
     // ETFs
     { symbol: 'SPY', exchange: 'ETF', name: 'SPDR S&P 500 ETF', category: 'etfs' },
-    { symbol: 'IVVB11', exchange: 'ETF', name: 'iShares S&P 500 ETF', category: 'etfs' },
-    { symbol: 'BOVA11', exchange: 'ETF', name: 'iShares Ibovespa ETF', category: 'etfs' }
+    { symbol: 'IVVB', exchange: 'ETF', name: 'iShares S&P 500 ETF', category: 'etfs' },
+    { symbol: 'BOVA', exchange: 'ETF', name: 'iShares Ibovespa ETF', category: 'etfs' }
   ];
 
   useEffect(() => {
@@ -126,15 +119,11 @@ function Home() {
       if (symbol === 'IBOV') return 'BMFBOVESPA:IBOV';
       return `${symbol}`;
     }
-    if (exchange === 'COMMODITIES') {
-      if (symbol === 'GCUSD') return 'COMEX:GC1!';
-      if (symbol === 'CLUSD') return 'NYMEX:CL1!';
-      return `${symbol}`;
-    }
     if (exchange === 'ETF') {
-      if (symbol === 'IVVB11') return 'B3:IVVB11';
-      if (symbol === 'BOVA11') return 'B3:BOVA11';
-      return `${exchange}:${symbol}`;
+      if (symbol === 'IVVB') return 'CBOE:IVVB';
+      if (symbol === 'BOVA') return 'BMFBOVESPA:BOVA';
+      if (symbol === 'SPY') return 'AMEX:SPY';
+      return `${symbol}`;
     }
     return `${exchange}:${symbol}`;
   };
@@ -184,11 +173,6 @@ function Home() {
       if (fav.exchange === 'FX') return { proName: `FX:${fav.symbol}`, title: fav.name };
       if (fav.exchange === 'INDICES') {
         if (fav.symbol === 'IBOV') return { proName: 'BMFBOVESPA:IBOV', title: fav.name };
-        return { proName: fav.symbol, title: fav.name };
-      }
-      if (fav.exchange === 'COMMODITIES') {
-        if (fav.symbol === 'GCUSD') return { proName: 'COMEX:GC1!', title: fav.name };
-        if (fav.symbol === 'CLUSD') return { proName: 'NYMEX:CL1!', title: fav.name };
         return { proName: fav.symbol, title: fav.name };
       }
       if (fav.exchange === 'ETF') {
@@ -277,7 +261,6 @@ function Home() {
                   {category === 'forex' && 'Forex'}
                   {category === 'crypto' && 'Criptomoedas'}
                   {category === 'indices' && 'Índices'}
-                  {category === 'commodities' && 'Commodities'}
                   {category === 'etfs' && 'ETFs'}
                 </ListGroup.Item>
               ))}

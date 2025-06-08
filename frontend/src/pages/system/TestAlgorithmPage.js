@@ -191,8 +191,8 @@ const TestAlgorithmPage = () => {
         { name: 'Lucro Líquido', value: reportData.results.totalNetProfit }
       ],
       tradesDistribution: [
-        { name: 'Negóciações Lucrativas', value: reportData.results.profitTrades },
-        { name: 'Negóciações Perdedoras', value: reportData.results.lossTrades }
+        { name: 'Negociações Lucrativas', value: reportData.results.profitTrades },
+        { name: 'Negociações Perdedoras', value: reportData.results.lossTrades }
       ],
       monthlyPerformance: generateMonthlyPerformance(reportData.deals),
       riskMetrics: [
@@ -325,7 +325,7 @@ const TestAlgorithmPage = () => {
           <Row className="mb-4">
             <Col md={6}>
               <Card>
-                <Card.Header>Distribuição de Negóciações</Card.Header>
+                <Card.Header>Distribuição de Negociações</Card.Header>
                 <Card.Body>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
