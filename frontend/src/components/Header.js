@@ -27,7 +27,8 @@ const Header = () => {
         const sucess = await logout();
 
         if (sucess) {
-            navigate('/login');
+            localStorage.removeItem('userID');
+            navigate('/');
         }
     };
     const handleLogoClick = () => {

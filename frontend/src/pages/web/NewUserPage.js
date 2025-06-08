@@ -6,6 +6,7 @@ import { Row, Col, Card, Form, Button, Alert, InputGroup, OverlayTrigger, Popove
 import { IoSearch } from "react-icons/io5";
 import { MdInfoOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import ReusedModal from '../../components/Modal.js';
 
 
 const NewUserPage = () => {
@@ -37,6 +38,12 @@ const NewUserPage = () => {
 
     const [error, setError] = useState(null)
     const [usernameMessage, setUsernameMessage] = useState('')
+
+    const [showModal, setShowModal] = useState(false);
+    const [modalContent, setModalContent] = useState({
+        title: '',
+        message: ''
+    });
 
     // Carrega a lista de estados
     useEffect(() => {
@@ -105,7 +112,11 @@ const NewUserPage = () => {
             });
 
             if (response.data) {
-                navigate('/login');
+                setModalContent({
+                    title: 'Cadastro realizado com sucesso!',
+                    message: 'Agora vocé pode fazer login na plataforma.',
+                });
+                setShowModal(true);
             }
         } catch (error) {
             const errorMessage = error.response?.data?.message ||
@@ -378,6 +389,15 @@ const NewUserPage = () => {
                 </Row>
             </div>
             <CopyRight />
+            <ReusedModal
+                show={showModal}
+                onHide={() => {
+                    setShowModal(false)
+                    navigate('/login')
+                }}
+                title={modalContent.title}
+                message={modalContent.message}
+            />
         </>
     );
 };
